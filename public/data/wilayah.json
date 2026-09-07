@@ -1,0 +1,397 @@
+{
+  "Aceh": {
+    "Kota Banda Aceh": {
+      "Kuta Alam": ["Lampriet", "Kuta Alam", "Kuta Lhok"],
+      "Syiah Kuala": ["Alue Naga", "Kopelma Darussalam", "Gampong Pie"]
+    },
+    "Kabupaten Aceh Besar": {
+      "Kota Jantho": ["Lampeuneurut", "Mata Ie", "Kejuruan Muda"],
+      "Lhoong": ["Lhoong", "Cot Girek", "Mata Ie"]
+    }
+  },
+  "Sumatera Utara": {
+    "Kota Medan": {
+      "Medan Selayang": ["Beringin", "Tanjung Sari", "Bantan"],
+      "Medan Baru": ["Pandau Hulu I", "Petisah Hulu", "Kampung Baru"]
+    },
+    "Kota Binjai": {
+      "Binjai Kota": ["Binjai", "Sukapura", "Tegal Sari"],
+      "Binjai Barat": ["Binjai", "Mesjid Raya", "Simalingkar"]
+    }
+  },
+  "Sumatera Barat": {
+    "Kota Padang": {
+      "Padang Barat": ["Padang Pasir", "Bungus", "Gurun Laweh"],
+      "Padang Timur": ["Air Pacah", "Jati", "Kampung Lapai"]
+    },
+    "Kabupaten Agam": {
+      "Lubuk Basung": ["Balai Gurah", "Baso", "Gadut"],
+      "Ampek Angkek": ["Canduang", "Matur", "Pasia"]
+    }
+  },
+  "Riau": {
+    "Kota Pekanbaru": {
+      "Sail": ["Sukajadi", "Jawai", "Maharatu"],
+      "Lima Puluh": ["Lembah Damai", "Rumbai", "Kampung Melayu"]
+    },
+    "Kabupaten Kampar": {
+      "Bangkinang": ["Bangkinang Kota", "Koto Baru", "Rumbio"],
+      "Kuok": ["Kuok", "Bangkalan", "Koto Tuo"]
+    }
+  },
+  "Jambi": {
+    "Kota Jambi": {
+      "Jambi Timur": ["Pelayangan", "Pasir Putih", "Simpang Tiga"],
+      "Jambi Selatan": ["The Hok", "Beringin", "Kebun Handil"]
+    },
+    "Kabupaten Muaro Jambi": {
+      "Sekernan": ["Sekernan", "Simpang", "Maro"],
+      "Jambi Luar Kota": ["Bangko", "Mandiangin", "Pematang Gajah"]
+    }
+  },
+  "Sumatera Selatan": {
+    "Kota Palembang": {
+      "Ilir Barat I": ["10 Ulu", "11 Ulu", "32 Ilir"],
+      "Sukarami": ["Bangkitan", "Karya Jaya", "Sukarami"]
+    },
+    "Kabupaten Ogan Komering Ilir": {
+      "Kayu Agung": ["Kayu Agung", "Tanjung Kramat", "Marga Puspita"],
+      "Indralaya": ["Indralaya", "Mekar Jaya", "Pulo Kerto"]
+    }
+  },
+  "Bengkulu": {
+    "Kota Bengkulu": {
+      "Gading Cempaka": ["Jalan Gedang", "Kandang Limun", "Suka Merindu"],
+      "Ratu Samban": ["Kebun Tebeng", "Padang Jati", "Suka Merindu"]
+    },
+    "Kabupaten Rejang Lebong": {
+      "Curup": ["Curup", "Bengko", "Pandan"]
+    }
+  },
+  "Lampung": {
+    "Kota Bandar Lampung": {
+      "Tanjung Karang Timur": ["Kebon Jahe", "Bumi Waras", "Kedaton"],
+      "Kemiling": ["Kedaung", "Bumi Waras", "Sumber Rejo"]
+    },
+    "Kabupaten Lampung Selatan": {
+      "Kalianda": ["Kalianda", "Sukarame", "Tanjung Senang"],
+      "Rajabasa": ["Rajabasa", "Way Dadi", "Mataram"]
+    }
+  },
+  "Kepulauan Bangka Belitung": {
+    "Kota Pangkalpinang": {
+      "Rangkui": ["Rangkui", "Air Battu", "Tua Tunu"],
+      "Gabek": ["Gabek", "Bukit Intan", "Jawa Kanan"]
+    },
+    "Kabupaten Bangka": {
+      "Mendo Barat": ["Mendo", "Pangkal Niur", "Ketapang"],
+      "Sungailiat": ["Sungailiat", "Tanjung Pandan", "Koba"]
+    }
+  },
+  "Kepulauan Riau": {
+    "Kota Batam": {
+      "Batam Kota": ["Nagoya", "Taman Baloi", "Kampung Seraya"],
+      "Sekupang": ["Bukit Tempayan", "Sungai Panas", "Batam Centre"]
+    },
+    "Kota Tanjungpinang": {
+      "Tanjungpinang Timur": ["Tanjung Ayun", "Sungai Jodoh", "Sungai Binti"],
+      "Tanjungpinang Barat": ["Tanjung Unggat", "Bintan Centre", "Bulang"]
+    }
+  },
+  "DKI Jakarta": {
+    "Kota Jakarta Selatan": {
+      "Kebayoran Baru": ["Kramat Pela", "Selong", "Pulo"],
+      "Pasar Minggu": ["Pejaten", "Cilandak", "Kebagusan"]
+    },
+    "Kota Jakarta Timur": {
+      "Cakung": ["Cakung Timur", "Jatinegara", "Pulo Gebang"],
+      "Pasar Rebo": ["Kalisari", "Cijantung", "Pekayon"]
+    }
+  },
+  "Jawa Barat": {
+    "Kota Bandung": {
+      "Bandung Wetan": ["Cihapit", "Lengkong", "Citarum"],
+      "Coblong": ["Dago", "Dipatiukur", "Sukapada"]
+    },
+    "Kota Bekasi": {
+      "Bekasi Timur": ["Jatiwaringin", "Margahayu", "Aren Jaya"],
+      "Bekasi Selatan": ["Bintara", "Pekayon", "Taman Galaxy"]
+    },
+    "Kota Bogor": {
+      "Bogor Selatan": ["Kebon Kalapa", "Pabaton", "Lawang Gintung"],
+      "Bogor Timur": ["Cikaret", "Sempur", "Baranangsiang"]
+    }
+  },
+  "Jawa Tengah": {
+    "Kota Semarang": {
+      "Semarang Tengah": ["Kampung Melayu", "Mangunharjo", "Karangayu"],
+      "Semarang Timur": ["Kebonagung", "Muktiharjo", "Sampangan"]
+    },
+    "Kota Surakarta": {
+      "Laweyan": ["Bumi", "Pucangsawit", "Sondakan"],
+      "Serengan": ["Serengan", "Kerten", "Joyosuran"]
+    },
+    "Kabupaten Kudus": {
+      "Kudus": ["Bae", "Kudus", "Jati"],
+      "Gebog": ["Gebog", "Menawan", "Ploso"]
+    }
+  },
+  "DI Yogyakarta": {
+    "Kota Yogyakarta": {
+      "Danurejan": ["Tegalpanggung", "Suryatmajan", "Kampungsemar"],
+      "Gondokusuman": ["Baciro", "Demangan", "Sosrowijayan"]
+    },
+    "Kabupaten Sleman": {
+      "Depok": ["Caturtunggal", "Depok", "Condongcatur"],
+      "Mlati": ["Tlogoadi", "Sinduadi", "Sendangadi"]
+    }
+  },
+  "Jawa Timur": {
+    "Kota Surabaya": {
+      "Wonokromo": ["Tegalsari", "Kebonsari", "Wonokromo"],
+      "Genteng": ["Genteng", "Ketabang", "Kapasari"],
+      "Rungkut": ["Medokan Ayu", "Rungkut Kidul", "Kali Rungkut"]
+    },
+    "Kota Malang": {
+      "Klojen": ["Klojen", "Rampal Celaket", "Samaan"],
+      "Lowokwaru": ["Lowokwaru", "Tasikmadu", "Tulusrejo"],
+      "Blimbing": ["Blimbing", "Bunulrejo", "Dinoyo"]
+    },
+    "Kota Kediri": {
+      "Mojoroto": ["Mojoroto", "Pakunden", "Bujel"],
+      "Pesantren": ["Pesantren", "Kandat", "Kedungdoro"]
+    },
+    "Kabupaten Jember": {
+      "Jember": ["Kebon Agung", "Patrang", "Sumbersari"],
+      "Ajung": ["Ajung", "Pondok Doko", "Banjarsengon"]
+    }
+  },
+  "Banten": {
+    "Kota Tangerang": {
+      "Tangerang": ["Sukasari", "Kebon Nanas", "Kebon Jeruk"],
+      "Ciledug": ["Ciledug", "Parung Serab", "Benda"]
+    },
+    "Kota Serang": {
+      "Serang": ["Serang", "Cikande", "Kecamatan Baru"],
+      "Curug": ["Curug", "Rancasari", "Pabuaran"]
+    }
+  },
+  "Bali": {
+    "Kota Denpasar": {
+      "Denpasar Selatan": ["Sanur", "Panjer", "Pemogan"],
+      "Denpasar Barat": ["Padangsambian", "Kesiman", "Tegalwaru"]
+    },
+    "Kabupaten Badung": {
+      "Kuta": ["Kuta", "Legian", "Seminyak"],
+      "Ubud": ["Ubud", "Tegalalang", "Mas"]
+    }
+  },
+  "Nusa Tenggara Barat": {
+    "Kota Mataram": {
+      "Ampenan": ["Ampenan", "Bertais", "Mataram Baru"],
+      "Selaparang": ["Mataram", "Rembiga", "Karang Taliwang"]
+    },
+    "Kabupaten Lombok Barat": {
+      "Gerung": ["Gerung", "Lingsar", "Banyumulek"],
+      "Labuapi": ["Labuapi", "Gondang", "Aikmel"]
+    }
+  },
+  "Nusa Tenggara Timur": {
+    "Kota Kupang": {
+      "Kelapa Lima": ["Oebobo", "Lasiana", "Kupang"],
+      "Maulafa": ["Naibonat", "Kayu Putih", "Kuanino"]
+    },
+    "Kabupaten Flores Timur": {
+      "Larantuka": ["Larantuka", "Lewoleba", "Adonara"],
+      "Solor": ["Solor", "Bakalerek", "Puyung"]
+    }
+  },
+  "Kalimantan Barat": {
+    "Kota Pontianak": {
+      "Pontianak Selatan": ["Parit Tokaya", "Tanjung Hulu", "Sungai Jawi"],
+      "Pontianak Timur": ["Bangka Belitung", "Sungai Beliung", "Mulia Baru"]
+    },
+    "Kabupaten Kubu Raya": {
+      "Sungai Kakap": ["Sungai Kakap", "Kuala Dua", "Sungai Raya"],
+      "Batu Ampar": ["Batu Ampar", "Mekar Baru", "Sungai Kunyit"]
+    }
+  },
+  "Kalimantan Tengah": {
+    "Kota Palangka Raya": {
+      "Pahandut": ["Pahandut", "Bereng Bengkel", "Langkai"],
+      "Jekan Raya": ["Pahandut", "Kereng Bangkirai", "Tangkiling"]
+    },
+    "Kabupaten Kotawaringin Barat": {
+      "Pangkalan Bun": ["Pangkalan Bun", "Pangkalan Lada", "Sampit"],
+      "Arut Selatan": ["Arut Selatan", "Bantanan", "Sukamara"]
+    }
+  },
+  "Kalimantan Selatan": {
+    "Kota Banjarmasin": {
+      "Banjarmasin Timur": ["Kertak Hanyar", "Sungai Miai", "Kelayan"],
+      "Banjarmasin Selatan": ["Sungai Besar", "Banjarmasin", "Kambang"]
+    },
+    "Kota Banjarbaru": {
+      "Liang Anggang": ["Liang Anggang", "Landasan Ulin", "Cempaka"],
+      "Banjarbaru Utara": ["Guntung Payung", "Mentaos", "Karang Mekar"]
+    }
+  },
+  "Kalimantan Timur": {
+    "Kota Samarinda": {
+      "Samarinda Ulu": ["Samarinda Ulu", "Sempaja", "Samarinda Seberang"],
+      "Loa Janan": ["Loa Janan", "Karang Asam", "Mangkupalas"]
+    },
+    "Kabupaten Kutai Kartanegara": {
+      "Tenggarong": ["Tenggarong", "Kota Bangun", "Loa Kulu"],
+      "Samboja": ["Samboja", "Muara Badak", "Marang Kayu"]
+    }
+  },
+  "Kalimantan Utara": {
+    "Kota Tarakan": {
+      "Tarakan Timur": ["Karang Anyar", "Mamburungan", "Juata"],
+      "Tarakan Tengah": ["Tanjung Selor", "Sebengkok", "Binalatung"]
+    },
+    "Kabupaten Bulungan": {
+      "Tanjung Selor": ["Tanjung Selor", "Sungai Kayan", "Karang Agung"],
+      "Malinau": ["Malinau", "Tanjung Redeb", "Long Lellang"]
+    }
+  },
+  "Sulawesi Utara": {
+    "Kota Manado": {
+      "Wenang": ["Wenang", "Teling Bawah", "Kairagi"],
+      "Mapanget": ["Mapanget", "Tombulu", "Kawangkoan"]
+    },
+    "Kabupaten Minahasa": {
+      "Tondano": ["Tondano", "Kakas", "Langowan"],
+      "Tomohon": ["Tomohon", "Airmadidi", "Talawaan"]
+    }
+  },
+  "Sulawesi Tengah": {
+    "Kota Palu": {
+      "Palu Timur": ["Tatura", "Kawatuna", "Balaroa"],
+      "Palu Selatan": ["Palu", "Mamboro", "Lere"]
+    },
+    "Kabupaten Donggala": {
+      "Donggala": ["Donggala", "Sibalaya", "Balaesang"],
+      "Sindue": ["Sindue", "Balaesang", "Batudaka"]
+    }
+  },
+  "Sulawesi Selatan": {
+    "Kota Makassar": {
+      "Makassar": ["Manggala", "Tamalanrea", "Biringkanaya"],
+      "Ujung Pandang": ["Tamalate", "Panakkukang", "Rappocini"]
+    },
+    "Kabupaten Gowa": {
+      "Sungguminasa": ["Sungguminasa", "Pattallassang", "Barombong"],
+      "Bontomarannu": ["Bontomarannu", "Bira", "Cikoang"]
+    }
+  },
+  "Sulawesi Tenggara": {
+    "Kota Kendari": {
+      "Kendari Barat": ["Kendari", "Abeli", "Baruga"],
+      "Kendari Timur": ["Wua-Wua", "Kambu", "Bende"]
+    },
+    "Kabupaten Konawe": {
+      "Unaaha": ["Unaaha", "Wanggudu", "Andonohu"],
+      "Konawe Selatan": ["Anggaberi", "Wawotobi", "Asera"]
+    }
+  },
+  "Gorontalo": {
+    "Kota Gorontalo": {
+      "Kota Timur": ["Dungingi", "Hulonthalangi", "Limba B"],
+      "Kota Barat": ["Wumialang", "Biawao", "Karang Intan"]
+    },
+    "Kabupaten Boalemo": {
+      "Tilamuta": ["Tilamuta", "Wonosari", "Alo"]
+    }
+  },
+  "Sulawesi Barat": {
+    "Kabupaten Polewali Mandar": {
+      "Polewali": ["Polewali", "Tinambung", "Tapango"],
+      "Matangnga": ["Matangnga", "Mamuju", "Binuang"]
+    },
+    "Kabupaten Mamasa": {
+      "Mamasa": ["Mamasa", "Mambi", "Sesenapadang"]
+    }
+  },
+  "Maluku": {
+    "Kota Ambon": {
+      "Nusaniwe": ["Nusaniwe", "Waiheru", "Passo"],
+      "Ambon Bay": ["Morela", "Tengah", "Amahusu"]
+    },
+    "Kabupaten Seram Bagian Barat": {
+      "Kairatu": ["Kairatu", "Aruan", "Waisamu"],
+      "Taniwel": ["Taniwel", "Luhu", "Tawiri"]
+    }
+  },
+  "Maluku Utara": {
+    "Kota Ternate": {
+      "Ternate Selatan": ["Kastela", "Sasa", "Kalumata"],
+      "Ternate Utara": ["Toboleu", "Moya", "Mare"]
+    },
+    "Kabupaten Halmahera Timur": {
+      "Moti": ["Moti", "Dodinga", "Buli"],
+      "Weda": ["Weda", "Patani", "Kego"]
+    }
+  },
+  "Papua Barat": {
+    "Kota Sorong": {
+      "Sorong Timur": ["Remu", "Klabat", "Malaimsimsa"],
+      "Sorong Barat": ["Klaisu", "Klawak", "Mariat"]
+    },
+    "Kabupaten Manokwari": {
+      "Manokwari Barat": ["Manokwari", "Tanah Merah", "Wosi"],
+      "Prafi": ["Prafi", "Membowi", "Warkapi"]
+    }
+  },
+  "Papua": {
+    "Kota Jayapura": {
+      "Jayapura Selatan": ["Kota Baru", "Hedam", "Abepura"],
+      "Jayapura Utara": ["Sentani", "Waibakul", "Koya Barat"]
+    },
+    "Kabupaten Jayapura": {
+      "Sentani": ["Sentani", "Depapre", "Kaureh"],
+      "Kemtuk": ["Kemtuk", "Kemtukgayo", "Kombay"]
+    }
+  },
+  "Papua Tengah": {
+    "Kota Timika": {
+      "Mimika Timur": ["Mimika", "Iwaka", "Kuala Kencana"],
+      "Mimika Baru": ["Mimika Baru", "Jila", "Aroa"]
+    },
+    "Kabupaten Puncak": {
+      "Puncak Jaya": ["Mulia", "Puncak", "Lumo"],
+      "Beoga": ["Beoga", "Doom", "Mapi"]
+    }
+  },
+  "Papua Pegunungan": {
+    "Kota Wamena": {
+      "Wamena": ["Wamena", "Kumul", "Hilisimae"],
+      "Hubikiak": ["Hubikiak", "Wololo", "Nabire"]
+    },
+    "Kabupaten Jayawijaya": {
+      "Kiyage": ["Kiyage", "Kepi", "Muli"],
+      "Wamena": ["Wamena", "Kurulu", "Abenaho"]
+    }
+  },
+  "Papua Selatan": {
+    "Kota Merauke": {
+      "Merauke": ["Merauke", "Tanah Miring", "Kurik"],
+      "Sota": ["Sota", "Elikobel", "Mopah"]
+    },
+    "Kabupaten Asmat": {
+      "Agats": ["Agats", "Atsy", "Yahukimo"],
+      "Sawa": ["Sawa", "Awyu", "Mapi"]
+    }
+  },
+  "Papua Barat Daya": {
+    "Kota Sorong": {
+      "Sorong Kota": ["Makbon", "Malaimsimsa", "Remu"],
+      "Sorong Selatan": ["Sorsogon", "Saifi", "Klawak"]
+    },
+    "Kabupaten Raja Ampat": {
+      "Waisai": ["Waisai", "Kabare", "Misool"],
+      "Kepulauan": ["Kepulauan", "Waigeo", "Salawati"]
+    }
+  }
+}

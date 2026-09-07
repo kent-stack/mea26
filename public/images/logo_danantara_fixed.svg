@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 92" role="img" aria-labelledby="title">
+  <title id="title">Danantara Indonesia</title>
+  <rect x="4" y="8" width="76" height="76" rx="4" fill="#050505"/>
+  <path d="M12 42c17-15 35-15 57-2-12 1-21 6-29 15-8-7-17-11-28-13z" fill="#fff"/>
+  <path d="M12 42c17-15 35-15 57-2-12-1-21-4-29-9-8 5-17 9-28 11z" fill="#e31e2f"/>
+  <text x="96" y="43" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#050505">Danantara</text>
+  <text x="96" y="77" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#050505">Indonesia</text>
+</svg>
