@@ -624,6 +624,10 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
+// One-time browser setup for the first superadmin account.
+Route::get('/setup', [App\Http\Controllers\AdminUserController::class, 'setup'])->name('setup');
+Route::post('/setup', [App\Http\Controllers\AdminUserController::class, 'storeSetup'])->name('setup.store');
+
 // Admin report management (requires auth + is_admin)
 Route::middleware(['auth', \App\Http\Middleware\IsAdmin::class])->prefix('admin')->group(function () {
     Route::get('/participants', [App\Http\Controllers\AdminParticipantController::class, 'index'])->name('admin.participants.index');
@@ -631,4 +635,9 @@ Route::middleware(['auth', \App\Http\Middleware\IsAdmin::class])->prefix('admin'
     Route::get('/reports', [App\Http\Controllers\AdminReportController::class, 'index'])->name('admin.reports.index');
     Route::get('/reports/{report}', [App\Http\Controllers\AdminReportController::class, 'show'])->name('admin.reports.show');
     Route::delete('/reports/{report}', [App\Http\Controllers\AdminReportController::class, 'destroy'])->name('admin.reports.destroy');
+});
+
+Route::middleware(['auth', \App\Http\Middleware\IsSuperAdmin::class])->prefix('admin')->group(function () {
+    Route::get('/users/create', [App\Http\Controllers\AdminUserController::class, 'create'])->name('admin.users.create');
+    Route::post('/users', [App\Http\Controllers\AdminUserController::class, 'store'])->name('admin.users.store');
 });

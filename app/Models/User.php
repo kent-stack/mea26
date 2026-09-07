@@ -16,6 +16,7 @@ use Illuminate\Notifications\Notifiable;
     'email',
     'password',
     'is_admin',
+    'is_superadmin',
     'full_name',
     'place_of_birth',
     'date_of_birth',
@@ -55,6 +56,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'date_of_birth' => 'date',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
+            'is_superadmin' => 'boolean',
         ];
     }
 }

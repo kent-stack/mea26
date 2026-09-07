@@ -31,6 +31,9 @@
                                     <a href="{{ route('admin.reports.index') }}" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition">Reports</a>
                                     <a href="{{ route('admin.participants.index') }}" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition">Participants</a>
                                     <a href="{{ url('/module') }}" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition">Module</a>
+                                    @if(auth()->user()->is_superadmin)
+                                        <a href="{{ route('admin.users.create') }}" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition">Create User</a>
+                                    @endif
                                 @endif
                                 @unless(auth()->user()->is_admin)
                                     <a href="{{ route('profile') }}" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition">Profile</a>
@@ -111,6 +114,9 @@
                                 <a href="{{ route('profile') }}" class="admin-mobile-link block px-4 py-3 text-base font-semibold text-slate-700 transition hover:bg-slate-100">PROFILE</a>
                             @endunless
                             <a href="{{ route('submitted.reports') }}" class="admin-mobile-link block px-4 py-3 text-base font-semibold text-slate-700 transition hover:bg-slate-100">{{ auth()->user()->is_admin ? 'SUBMITTED ANNOUNCEMENT' : 'SUBMITTED REPORTS' }}</a>
+                            @if(auth()->user()->is_superadmin)
+                                <a href="{{ route('admin.users.create') }}" class="admin-mobile-link block px-4 py-3 text-base font-semibold text-slate-700 transition hover:bg-slate-100">CREATE USER</a>
+                            @endif
                             <form method="POST" action="{{ route('logout') }}" class="pt-1 text-center">
                                 @csrf
                                 <button type="submit" class="admin-mobile-link mx-auto block rounded-xl px-4 py-3 text-center text-base font-semibold text-slate-700 transition hover:bg-red-50 hover:text-red-600">LOGOUT</button>
