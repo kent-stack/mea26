@@ -23,9 +23,7 @@ class AuthController extends Controller
         $login = $request->input('identifier');
         $password = $request->input('password');
 
-        $credentials = filter_var($login, FILTER_VALIDATE_EMAIL)
-            ? ['email' => $login, 'password' => $password]
-            : ['username' => $login, 'password' => $password];
+        $credentials = ['username' => $login, 'password' => $password];
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
