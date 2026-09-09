@@ -586,21 +586,30 @@ use App\Http\Controllers\AuthController;
 Route::get('/admin/announcements/create', [AnnouncementController::class, 'create'])->middleware('auth');
 Route::post('/admin/announcements', [AnnouncementController::class, 'store'])->middleware('auth');
 
-// Download announcement file
+Route::get('/announcement/media/{id}', function ($id) {
+    $announcement = \App\Models\Announcement::findOrFail($id);
+    $mediaPath = $announcement->image ?: $announcement->file;
+    abort_unless($mediaPath, 404);
+
+    $storage = \Illuminate\Support\Facades\Storage::disk('public');
+    abort_unless($storage->exists($mediaPath), 404);
+
+    return response()->file($storage->path($mediaPath));
+})->name('announcement.media');
+
+// View announcement file or image
 Route::get('/announcement/download/{id}', function ($id) {
     $announcement = \App\Models\Announcement::findOrFail($id);
+
+    $mediaPath = $announcement->file ?: $announcement->image;
+    abort_unless($mediaPath, 404);
+
+    $storage = \Illuminate\Support\Facades\Storage::disk('public');
+    abort_unless($storage->exists($mediaPath), 404);
+
+    $filePath = $storage->path($mediaPath);
     
-    if (!$announcement->file) {
-        abort(404);
-    }
-    
-    $filePath = storage_path('app/public/' . $announcement->file);
-    
-    if (!file_exists($filePath)) {
-        abort(404);
-    }
-    
-    $fileExt = strtolower(pathinfo($announcement->file, PATHINFO_EXTENSION));
+    $fileExt = strtolower(pathinfo($mediaPath, PATHINFO_EXTENSION));
     $mimeTypes = [
         'pdf' => 'application/pdf',
         'jpg' => 'image/jpeg',

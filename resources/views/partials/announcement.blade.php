@@ -24,7 +24,7 @@
                         @php
                             $mediaPath = $announcement->image ?? $announcement->file;
                             $fileExt = $mediaPath ? pathinfo($mediaPath, PATHINFO_EXTENSION) : '';
-                            $fileUrl = $mediaPath ? \Illuminate\Support\Facades\Storage::url($mediaPath) : null;
+                            $fileUrl = $mediaPath ? route('announcement.media', $announcement->id) : null;
                             $fileSizeFormatted = 'Unknown size';
 
                             try {
