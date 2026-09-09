@@ -40,7 +40,7 @@
                         <input type="hidden" name="remove_announcement_image" id="remove-announcement-image-input" value="0">
                     @endif
                     <label for="announcement_image" style="display: inline-flex; cursor: pointer; border-radius: 0.75rem; background: #2563eb; padding: 0.7rem 1rem; font-weight: 700; color: white;">Add image</label>
-                    <input id="announcement_image" name="announcement_image" type="file" accept="image/*" style="display: none;">
+                    <input id="announcement_image" name="announcement_image" type="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*" style="display: none;">
                     <p id="announcement-image-name" style="margin-top: 0.5rem; font-size: 0.8rem; color: #64748b;">Existing image stays until removed.</p>
                 </div>
 

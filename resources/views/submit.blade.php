@@ -77,7 +77,7 @@
                 <div class="form-group" style="margin-bottom: 3rem;">
                     <label style="display: block; font-weight: 800; color: var(--text-main); margin-bottom: 0.8rem; font-size: 1rem;">Photo/Video Documentation (Maximum 10 Files)</label>
                     <div class="photo-box" style="position: relative; border: 2px dashed var(--primary); border-radius: 20px; padding: 3rem 2rem; background: rgba(5, 150, 105, 0.02); text-align: center; transition: all 0.3s ease;">
-                        <input type="file" id="photos" name="photos[]" multiple style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" accept="image/*,video/*" required onchange="updateFileList(this)">
+                        <input type="file" id="photos" name="photos[]" multiple style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,.mp4,.mov,.avi,.webm,.mkv,image/*,video/*" required onchange="updateFileList(this)">
                         <div id="upload-placeholder">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                             <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">Click or drag photos here</p>
@@ -170,7 +170,7 @@
                     <div class="form-group" style="margin-bottom: 2rem;">
                         <label style="display: block; font-weight: 800; color: var(--text-main); margin-bottom: 0.8rem; font-size: 1rem;">Announcement Image (optional)</label>
                         <div class="photo-box" style="position: relative; border: 2px dashed #3b82f6; border-radius: 20px; padding: 3rem 2rem; background: rgba(59, 130, 246, 0.02); text-align: center; transition: all 0.3s ease;">
-                            <input type="file" id="announcement_image" name="announcement_image" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" accept="image/*" onchange="updateAnnouncementImageList(this)">
+                            <input type="file" id="announcement_image" name="announcement_image" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*" onchange="updateAnnouncementImageList(this)">
                             <div id="announcement-image-upload-placeholder">
                                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                                 <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">Click or drag the image here</p>

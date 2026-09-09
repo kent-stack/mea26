@@ -297,7 +297,7 @@ Route::middleware('auth')->group(function () {
             'nama_project' => 'required|string|max:255',
             'penjelasan_project' => 'required|string',
             'photos' => 'nullable|array|max:10',
-            'photos.*' => 'image|mimes:jpg,jpeg,png,webp|max:5120',
+            'photos.*' => 'image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:5120',
             'removed_photos' => 'nullable|array|max:10',
             'removed_photos.*' => 'string',
         ]);
@@ -403,7 +403,7 @@ Route::middleware('auth')->group(function () {
         $request->validate([
             'announcement_title' => 'required|string|max:255',
             'announcement_content' => 'nullable|string',
-            'announcement_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+            'announcement_image' => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:5120',
             'announcement_file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt,zip,mp4,mov,avi,webm,mkv|max:2097152',
         ]);
 
@@ -501,7 +501,7 @@ Route::middleware('auth')->group(function () {
             $validated = $request->validate([
                 'announcement_title' => 'required|string|max:255',
                 'announcement_content' => 'nullable|string',
-                'announcement_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+                'announcement_image' => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:5120',
                 'announcement_file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt,zip,mp4,mov,avi,webm,mkv|max:2097152',
             ]);
 

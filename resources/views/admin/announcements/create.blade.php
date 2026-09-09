@@ -18,7 +18,7 @@
         </div>
         <div class="mb-4">
             <label class="block font-semibold mb-2">Image (optional)</label>
-            <input type="file" name="image" accept="image/*">
+            <input type="file" name="image" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*">
         </div>
         <div class="mb-4">
             <label class="block font-semibold mb-2">File (optional)</label>

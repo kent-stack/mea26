@@ -23,7 +23,7 @@ class ReportController extends Controller
             'nama_project' => 'required|string|max:255',
             'penjelasan_project' => 'required|string',
             'photos' => 'required|array|max:10',
-            'photos.*' => 'file|mimes:jpg,jpeg,png,webp,mp4,mov,avi,webm,mkv|max:2097152',
+            'photos.*' => 'file|mimes:jpg,jpeg,png,gif,bmp,webp,avif,mp4,mov,avi,webm,mkv|max:2097152',
         ]);
 
         $paths = [];
