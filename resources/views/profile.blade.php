@@ -63,14 +63,15 @@
 
                         <div class="card-body p-5">
                             <div class="grid gap-5 md:grid-cols-[140px_1fr] md:items-center">
-                                <div class="mx-auto h-40 w-32 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-inner">
+                                <div id="photo-preview-container" class="mx-auto h-40 w-32 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-inner">
                                     @if(auth()->user()->photo_3x4)
-                                        <img src="{{ route('users.photo', auth()->user()) }}" alt="3x4 Photo" class="h-full w-full object-cover" />
+                                        <img id="photo-preview" src="{{ route('users.photo', auth()->user()) }}" alt="3x4 Photo" class="h-full w-full object-cover" />
                                     @else
-                                        <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-sky-100 to-sky-200 text-3xl font-bold text-sky-700">
-                                            {{ strtoupper(substr(auth()->user()->full_name ?: auth()->user()->name ?: 'P', 0, 1)) }}
-                                        </div>
+                                        <img id="photo-preview" src="" alt="3x4 Photo" class="hidden h-full w-full object-cover" />
                                     @endif
+                                    <div id="photo-placeholder" class="flex h-full w-full items-center justify-center bg-gradient-to-br from-sky-100 to-sky-200 text-3xl font-bold text-sky-700 {{ auth()->user()->photo_3x4 ? 'hidden' : '' }}">
+                                        {{ strtoupper(substr(auth()->user()->full_name ?: auth()->user()->name ?: 'P', 0, 1)) }}
+                                    </div>
                                 </div>
  
                                 <div class="space-y-4">
@@ -92,7 +93,17 @@
  
                                     <div>
                                         <label for="photo_3x4" class="mb-2 block text-sm font-semibold text-slate-700">3x4 Photo</label>
-                                        <input id="photo_3x4" name="photo_3x4" type="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*" class="block w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 file:mr-4 file:rounded-lg file:border-0 file:bg-sky-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-sky-700">
+                                        <input type="hidden" id="remove_photo" name="remove_photo" value="0">
+                                        <div class="flex flex-wrap items-center gap-3">
+                                            <label for="photo_3x4" id="photo-file-label" class="cursor-pointer rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700">
+                                                {{ auth()->user()->photo_3x4 ? 'Edit' : 'Choose File' }}
+                                            </label>
+                                            <input id="photo_3x4" name="photo_3x4" type="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*" class="sr-only">
+                                            @if(auth()->user()->photo_3x4)
+                                                <button type="button" id="remove-photo-button" class="rounded-lg border border-red-200 px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50">Hapus Foto</button>
+                                            @endif
+                                        </div>
+                                        <p id="photo-file-status" class="mt-2 text-xs text-slate-500">{{ auth()->user()->photo_3x4 ? 'Pilih foto baru untuk mengganti foto saat ini.' : 'Belum ada foto yang dipilih.' }}</p>
                                         @error('photo_3x4')
                                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                         @enderror
@@ -266,6 +277,46 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const photoInput = document.getElementById('photo_3x4');
+        const photoFileLabel = document.getElementById('photo-file-label');
+        const photoFileStatus = document.getElementById('photo-file-status');
+        const removePhotoInput = document.getElementById('remove_photo');
+        const removePhotoButton = document.getElementById('remove-photo-button');
+        const photoPreview = document.getElementById('photo-preview');
+        const photoPlaceholder = document.getElementById('photo-placeholder');
+
+        if (photoInput) {
+            photoInput.addEventListener('change', function () {
+                if (photoInput.files.length > 0) {
+                    removePhotoInput.value = '0';
+                    photoFileStatus.textContent = photoInput.files[0].name;
+                    photoFileLabel.textContent = 'Edit';
+
+                    const reader = new FileReader();
+                    reader.addEventListener('load', function () {
+                        photoPreview.src = reader.result;
+                        photoPreview.classList.remove('hidden');
+                        photoPlaceholder.classList.add('hidden');
+                    });
+                    reader.readAsDataURL(photoInput.files[0]);
+                }
+            });
+        }
+
+        if (removePhotoButton) {
+            removePhotoButton.addEventListener('click', function () {
+                removePhotoInput.value = '1';
+                photoInput.value = '';
+                photoFileLabel.textContent = 'Choose File';
+                photoFileStatus.textContent = 'Foto akan dihapus setelah Anda menyimpan profil.';
+                photoPreview.src = '';
+                photoPreview.classList.add('hidden');
+                photoPlaceholder.classList.remove('hidden');
+                removePhotoButton.disabled = true;
+                removePhotoButton.classList.add('cursor-not-allowed', 'opacity-50');
+            });
+        }
+
         const provinceSelect = document.getElementById('provinsi');
         const citySelect = document.getElementById('kabupaten_kota');
         const districtSelect = document.getElementById('kecamatan');

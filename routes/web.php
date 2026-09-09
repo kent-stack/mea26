@@ -236,6 +236,7 @@ Route::middleware('auth')->group(function () {
             'whatsapp_number' => 'required|string|max:20',
             'telegram_number' => 'nullable|string|max:30',
             'photo_3x4' => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:2048',
+            'remove_photo' => 'nullable|boolean',
         ]);
 
         $addressValue = $validated['address'] ?? implode(', ', array_filter([
@@ -274,6 +275,14 @@ Route::middleware('auth')->group(function () {
             'whatsapp_number' => $validated['whatsapp_number'],
             'telegram_number' => $validated['telegram_number'] ?? null,
         ]);
+
+        if (($validated['remove_photo'] ?? false) && $user->photo_3x4) {
+            if (\Illuminate\Support\Facades\Storage::disk('public')->exists($user->photo_3x4)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($user->photo_3x4);
+            }
+
+            $user->photo_3x4 = null;
+        }
 
         if ($request->hasFile('photo_3x4')) {
             if ($user->photo_3x4 && \Illuminate\Support\Facades\Storage::disk('public')->exists($user->photo_3x4)) {
