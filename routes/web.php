@@ -77,7 +77,7 @@ $modulePage = function () {
             'description' => $module->description ?? 'Module shared by admin.',
             'category' => ucfirst($module->module_category ?? 'materi'),
             'type' => strtoupper(pathinfo($module->file_name ?: $module->file_path, PATHINFO_EXTENSION) ?: 'FILE'),
-            'file' => asset('storage/' . $module->file_path),
+            'file' => route('modules.view', $module->id),
             'created_at' => $module->created_at,
         ];
     });
@@ -97,6 +97,13 @@ $moduleDownload = function (\App\Models\Module $module) {
         $module->file_name ?: basename($module->file_path)
     );
 };
+Route::get('/module/{module}/view', function (\App\Models\Module $module) {
+    $storage = \Illuminate\Support\Facades\Storage::disk('public');
+
+    abort_unless($module->file_path && $storage->exists($module->file_path), 404);
+
+    return response()->file($storage->path($module->file_path));
+})->name('modules.view');
 Route::get('/module/{module}/download', $moduleDownload)->name('modules.download');
 Route::get('/participants/{module}/download', $moduleDownload);
 
