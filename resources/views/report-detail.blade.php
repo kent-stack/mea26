@@ -30,11 +30,9 @@
                 @if(!empty($report->photos))
                     <div class="mt-10">
                         <div class="gallery-scroll flex gap-4 overflow-x-auto pb-2">
-                            @foreach($report->photos as $photo)
+                            @foreach($report->photos as $index => $photo)
                                 @php
-                                    $photoUrl = Storage::disk('public')->exists($photo)
-                                        ? Storage::disk('public')->url($photo)
-                                        : null;
+                                    $photoUrl = route('reports.media', [$report, $index]);
                                 @endphp
 
                                 @if($photoUrl)

@@ -65,6 +65,19 @@ $reportDetailPage = function (Report $report) {
 Route::get('/reports/{report}', $reportDetailPage)->name('report.detail');
 Route::get('/lapor/{report}', $reportDetailPage);
 
+Route::get('/reports/{report}/media/{index}', function (Report $report, int $index) {
+    abort_if($report->report_type === 'Announcement', 404);
+
+    $photos = is_array($report->photos) ? $report->photos : [];
+    abort_unless(isset($photos[$index]), 404);
+
+    $storage = \Illuminate\Support\Facades\Storage::disk('public');
+    $photo = ltrim($photos[$index], '/');
+    abort_unless($storage->exists($photo), 404);
+
+    return response()->file($storage->path($photo));
+})->whereNumber('index')->name('reports.media');
+
 Route::get('/berita', function () {
     return view('news.index');
 });

@@ -26,8 +26,8 @@
 
         @if(!empty($photos))
             <div class="grid grid-cols-2 gap-4">
-                @foreach($photos as $photo)
-                    <img src="{{ asset('storage/' . ltrim($photo, '/')) }}" alt="photo" class="w-full rounded" />
+                @foreach($photos as $index => $photo)
+                    <img src="{{ route('reports.media', [$report, $index]) }}" alt="photo" class="w-full rounded" />
                 @endforeach
             </div>
         @endif
