@@ -17,6 +17,12 @@
             </form>
         </div>
 
+        @if(session('success'))
+            <div class="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
+                {{ session('success') }}
+            </div>
+        @endif
+
         @if($participants->isEmpty())
             <div class="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-600">
                 No participants found.
@@ -45,7 +51,17 @@
                             </div>
                         </div>
                         <div class="border-t border-slate-100 px-5 py-3">
-                            <a href="{{ route('admin.participants.show', $participant) }}" class="text-sm font-semibold text-sky-700 hover:text-sky-900">View Profile</a>
+                            <div class="flex items-center justify-between gap-3">
+                                <a href="{{ route('admin.participants.show', $participant) }}" class="text-sm font-semibold text-sky-700 hover:text-sky-900">View Profile</a>
+                                <div class="flex items-center gap-3">
+                                    <a href="{{ route('admin.participants.edit', $participant) }}" class="text-sm font-semibold text-amber-700 hover:text-amber-900">Edit</a>
+                                    <form method="POST" action="{{ route('admin.participants.destroy', $participant) }}" onsubmit="return confirm('Delete this participant?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-sm font-semibold text-red-600 hover:text-red-800">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </article>
                 @endforeach

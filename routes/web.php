@@ -238,14 +238,17 @@ Route::middleware('auth')->group(function () {
             'photo_3x4' => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:2048',
         ]);
 
-        $addressValue = $validated['address'] ?? trim(
-            ($validated['jalan'] ?? '') . ' ' .
-            ($validated['dusun'] ?? '') . ' ' .
-            ($validated['kecamatan'] ?? '') . ' ' .
-            ($validated['kelurahan_desa'] ?? '') . ' ' .
-            'RT ' . ($validated['rt'] ?? '') . ' / RW ' . ($validated['rw'] ?? '') . ' ' .
-            ($validated['kode_pos'] ?? '')
-        );
+        $addressValue = $validated['address'] ?? implode(', ', array_filter([
+            $validated['jalan'] ?? null,
+            $validated['dusun'] ?? null,
+            $validated['kelurahan_desa'] ?? null,
+            $validated['kecamatan'] ?? null,
+            $validated['kabupaten_kota'] ?? null,
+            $validated['provinsi'] ?? null,
+            ($validated['rt'] ?? null) ? 'RT ' . $validated['rt'] : null,
+            ($validated['rw'] ?? null) ? 'RW ' . $validated['rw'] : null,
+            $validated['kode_pos'] ?? null,
+        ], fn ($value) => filled(trim((string) $value))));
 
         $user->fill([
             'name' => $validated['full_name'],
@@ -680,6 +683,9 @@ Route::post('/setup', [App\Http\Controllers\AdminUserController::class, 'storeSe
 Route::middleware(['auth', \App\Http\Middleware\IsAdmin::class])->prefix('admin')->group(function () {
     Route::get('/participants', [App\Http\Controllers\AdminParticipantController::class, 'index'])->name('admin.participants.index');
     Route::get('/participants/{participant}', [App\Http\Controllers\AdminParticipantController::class, 'show'])->name('admin.participants.show');
+    Route::get('/participants/{participant}/edit', [App\Http\Controllers\AdminParticipantController::class, 'edit'])->name('admin.participants.edit');
+    Route::put('/participants/{participant}', [App\Http\Controllers\AdminParticipantController::class, 'update'])->name('admin.participants.update');
+    Route::delete('/participants/{participant}', [App\Http\Controllers\AdminParticipantController::class, 'destroy'])->name('admin.participants.destroy');
     Route::get('/reports', [App\Http\Controllers\AdminReportController::class, 'index'])->name('admin.reports.index');
     Route::get('/reports/{report}', [App\Http\Controllers\AdminReportController::class, 'show'])->name('admin.reports.show');
     Route::delete('/reports/{report}', [App\Http\Controllers\AdminReportController::class, 'destroy'])->name('admin.reports.destroy');

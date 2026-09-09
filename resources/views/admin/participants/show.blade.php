@@ -14,7 +14,17 @@
             }
         </style>
         <div class="mb-6">
-            <a href="{{ route('admin.participants.index') }}" class="font-semibold text-sky-700 hover:text-sky-900">&larr; Back to participants</a>
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <a href="{{ route('admin.participants.index') }}" class="font-semibold text-sky-700 hover:text-sky-900">&larr; Back to participants</a>
+                <div class="flex items-center gap-3">
+                    <a href="{{ route('admin.participants.edit', $participant) }}" class="rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">Edit Participant</a>
+                    <form method="POST" action="{{ route('admin.participants.destroy', $participant) }}" onsubmit="return confirm('Delete this participant?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">Delete Participant</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -33,7 +43,13 @@
                 </div>
             </div>
 
-            <div class="grid gap-x-8 gap-y-5 p-6 sm:grid-cols-2">
+            @if(session('success'))
+                <div class="mx-6 mt-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700 sm:mx-10">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <div class="grid gap-x-8 gap-y-5 p-6 sm:p-10 sm:grid-cols-2">
                 @foreach([
                     'School origin' => $participant->school_origin,
                     'Gender' => $participant->gender,

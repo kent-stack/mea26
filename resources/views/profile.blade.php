@@ -271,6 +271,26 @@
         const districtSelect = document.getElementById('kecamatan');
         const villageSelect = document.getElementById('kelurahan_desa');
         const postalCodeInput = document.getElementById('kode_pos');
+        const regionApiUrl = @json(url('/wilayah'));
+
+        function fetchRegionData(path) {
+            return fetch(regionApiUrl + path, {
+                headers: { Accept: 'application/json' },
+            }).then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Region data request failed with status ' + response.status);
+                }
+
+                return response.json();
+            });
+        }
+
+        function showRegionError() {
+            [provinceSelect, citySelect, districtSelect, villageSelect].forEach(function (select) {
+                select.innerHTML = '<option value="">Region data unavailable</option>';
+                select.disabled = true;
+            });
+        }
 
         function syncPostalCodeFromVillage() {
             if (!postalCodeInput) {
@@ -323,8 +343,7 @@
         }
 
         function loadProvinces() {
-            fetch('/wilayah/provinces')
-                .then(function (response) { return response.json(); })
+            fetchRegionData('/provinces')
                 .then(function (provinces) {
                     fillSelect(provinceSelect, provinces, provinceSelect.dataset.selected || provinceSelect.value || '', 'name', 'name');
                     if (provinceSelect.dataset.selected) {
@@ -333,7 +352,8 @@
                     if (provinceSelect.value) {
                         loadCities(provinceSelect.value);
                     }
-                });
+                })
+                .catch(showRegionError);
         }
 
         function loadCities(provinceName) {
@@ -353,8 +373,7 @@
                 return;
             }
 
-            fetch('/wilayah/cities/' + encodeURIComponent(provinceCode))
-                .then(function (response) { return response.json(); })
+            fetchRegionData('/cities/' + encodeURIComponent(provinceCode))
                 .then(function (cities) {
                     fillSelect(citySelect, cities, citySelect.dataset.selected || citySelect.value || '', 'name', 'name');
                     if (citySelect.dataset.selected) {
@@ -363,7 +382,8 @@
                     if (citySelect.value) {
                         loadDistricts(citySelect.value);
                     }
-                });
+                })
+                .catch(showRegionError);
         }
 
         function loadDistricts(cityName) {
@@ -381,8 +401,7 @@
                 return;
             }
 
-            fetch('/wilayah/districts/' + encodeURIComponent(cityCode))
-                .then(function (response) { return response.json(); })
+            fetchRegionData('/districts/' + encodeURIComponent(cityCode))
                 .then(function (districts) {
                     fillSelect(districtSelect, districts, districtSelect.dataset.selected || districtSelect.value || '', 'name', 'name');
                     if (districtSelect.dataset.selected) {
@@ -391,7 +410,8 @@
                     if (districtSelect.value) {
                         loadVillages(districtSelect.value);
                     }
-                });
+                })
+                .catch(showRegionError);
         }
 
         function loadVillages(districtName) {
@@ -407,15 +427,15 @@
                 return;
             }
 
-            fetch('/wilayah/villages/' + encodeURIComponent(districtCode))
-                .then(function (response) { return response.json(); })
+            fetchRegionData('/villages/' + encodeURIComponent(districtCode))
                 .then(function (villages) {
                     fillSelect(villageSelect, villages, villageSelect.dataset.selected || villageSelect.value || '', 'name', 'name');
                     if (villageSelect.dataset.selected) {
                         villageSelect.value = villageSelect.dataset.selected;
                     }
                     syncPostalCodeFromVillage();
-                });
+                })
+                .catch(showRegionError);
         }
 
         provinceSelect.addEventListener('change', function () {
