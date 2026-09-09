@@ -40,7 +40,7 @@
                             <!-- File Preview Section -->
                             <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f8fafc 0%, #edf3f9 100%); border-radius: 20px; border: 1px solid #dfe7f1; overflow: hidden; padding: 1rem;">
                                 <div style="width: 100%; height: 100%; min-height: 360px; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid #edf2f7;">
-                                    @if(in_array(strtolower($fileExt), ['jpg', 'jpeg', 'png', 'gif', 'webp']) && $fileUrl)
+                                    @if(in_array(strtolower($fileExt), ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'avif']) && $fileUrl)
                                         <img src="{{ $fileUrl }}" alt="{{ $announcement->title }}" style="display: block; width: 100%; height: 100%; object-fit: cover;" />
                                     @elseif(in_array(strtolower($fileExt), ['pdf']))
                                         <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #fff7f7 0%, #fef2f2 100%);">

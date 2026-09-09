@@ -33,7 +33,7 @@
                         <div class="flex gap-4 p-5">
                             <div class="h-20 w-16 shrink-0 overflow-hidden rounded-xl bg-slate-100">
                                 @if($participant->photo_3x4)
-                                    <img src="{{ asset('storage/' . $participant->photo_3x4) }}" alt="{{ $participant->full_name ?: $participant->name }}" class="h-full w-full object-cover">
+                                    <img src="{{ route('users.photo', $participant) }}" alt="{{ $participant->full_name ?: $participant->name }}" class="h-full w-full object-cover">
                                 @else
                                     <div class="flex h-full items-center justify-center text-2xl font-bold text-sky-700">{{ strtoupper(substr($participant->full_name ?: $participant->name ?: 'P', 0, 1)) }}</div>
                                 @endif

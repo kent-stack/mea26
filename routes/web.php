@@ -75,8 +75,21 @@ Route::get('/reports/{report}/media/{index}', function (Report $report, int $ind
     $photo = ltrim($photos[$index], '/');
     abort_unless($storage->exists($photo), 404);
 
-    return response()->file($storage->path($photo));
+    return response()->file($storage->path($photo), [
+        'Content-Type' => $storage->mimeType($photo) ?: 'application/octet-stream',
+    ]);
 })->whereNumber('index')->name('reports.media');
+
+Route::get('/users/{user}/photo', function (\App\Models\User $user) {
+    abort_unless(auth()->id() === $user->id || auth()->user()->is_admin, 403);
+
+    $storage = \Illuminate\Support\Facades\Storage::disk('public');
+    abort_unless($user->photo_3x4 && $storage->exists($user->photo_3x4), 404);
+
+    return response()->file($storage->path($user->photo_3x4), [
+        'Content-Type' => $storage->mimeType($user->photo_3x4) ?: 'application/octet-stream',
+    ]);
+})->middleware('auth')->name('users.photo');
 
 Route::get('/berita', function () {
     return view('news.index');
@@ -115,7 +128,9 @@ Route::get('/module/{module}/view', function (\App\Models\Module $module) {
 
     abort_unless($module->file_path && $storage->exists($module->file_path), 404);
 
-    return response()->file($storage->path($module->file_path));
+    return response()->file($storage->path($module->file_path), [
+        'Content-Type' => $storage->mimeType($module->file_path) ?: 'application/octet-stream',
+    ]);
 })->name('modules.view');
 Route::get('/module/{module}/download', $moduleDownload)->name('modules.download');
 Route::get('/participants/{module}/download', $moduleDownload);
@@ -220,7 +235,7 @@ Route::middleware('auth')->group(function () {
             'address' => 'nullable|string|max:1000',
             'whatsapp_number' => 'required|string|max:20',
             'telegram_number' => 'nullable|string|max:30',
-            'photo_3x4' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'photo_3x4' => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:2048',
         ]);
 
         $addressValue = $validated['address'] ?? trim(
@@ -297,7 +312,7 @@ Route::middleware('auth')->group(function () {
             'nama_project' => 'required|string|max:255',
             'penjelasan_project' => 'required|string',
             'photos' => 'nullable|array|max:10',
-            'photos.*' => 'image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:5120',
+            'photos.*' => 'file|mimes:jpg,jpeg,png,gif,bmp,webp,avif,mp4,mov,avi,webm,mkv|max:2097152',
             'removed_photos' => 'nullable|array|max:10',
             'removed_photos.*' => 'string',
         ]);
@@ -564,7 +579,7 @@ Route::middleware('auth')->group(function () {
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,webp,avif|max:5120',
             'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt,zip|max:10240',
         ]);
 
@@ -614,7 +629,9 @@ Route::get('/announcement/media/{id}', function ($id) {
     $storage = \Illuminate\Support\Facades\Storage::disk('public');
     abort_unless($storage->exists($mediaPath), 404);
 
-    return response()->file($storage->path($mediaPath));
+    return response()->file($storage->path($mediaPath), [
+        'Content-Type' => $storage->mimeType($mediaPath) ?: 'application/octet-stream',
+    ]);
 })->name('announcement.media');
 
 // View announcement file or image
@@ -645,7 +662,9 @@ Route::get('/announcement/download/{id}', function ($id) {
     $mimeType = $mimeTypes[$fileExt] ?? 'application/octet-stream';
     
     // Return file inline instead of download
-    return response()->file($filePath, ['Content-Type' => $mimeType]);
+    return response()->file($filePath, [
+        'Content-Type' => $mimeType,
+    ]);
 })->name('announcement.download');
 
 // Authentication routes (simple login/logout)

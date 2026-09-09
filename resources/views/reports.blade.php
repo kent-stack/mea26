@@ -34,8 +34,9 @@
                     @php
                         $thumbPath = null;
                         if ($report->photos && is_array($report->photos) && count($report->photos)) {
-                            // use Storage::url to generate correct public URL
-                            $thumbPath = \Illuminate\Support\Facades\Storage::url($report->photos[0]);
+                            $thumbPath = \Illuminate\Support\Facades\Storage::disk('public')->exists($report->photos[0])
+                                ? route('reports.media', [$report, 0])
+                                : null;
                         }
                         $isVideo = $report->photos && is_array($report->photos) && count($report->photos)
                             && in_array(strtolower(pathinfo($report->photos[0], PATHINFO_EXTENSION)), ['mp4', 'mov', 'avi', 'webm', 'mkv']);
@@ -81,7 +82,9 @@
                     @php
                         $thumbPath = null;
                         if ($prevReport->photos && is_array($prevReport->photos) && count($prevReport->photos)) {
-                            $thumbPath = \Illuminate\Support\Facades\Storage::url($prevReport->photos[0]);
+                            $thumbPath = \Illuminate\Support\Facades\Storage::disk('public')->exists($prevReport->photos[0])
+                                ? route('reports.media', [$prevReport, 0])
+                                : null;
                         }
                         $isVideo = $prevReport->photos && is_array($prevReport->photos) && count($prevReport->photos)
                             && in_array(strtolower(pathinfo($prevReport->photos[0], PATHINFO_EXTENSION)), ['mp4', 'mov', 'avi', 'webm', 'mkv']);

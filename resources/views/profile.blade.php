@@ -65,7 +65,7 @@
                             <div class="grid gap-5 md:grid-cols-[140px_1fr] md:items-center">
                                 <div class="mx-auto h-40 w-32 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-inner">
                                     @if(auth()->user()->photo_3x4)
-                                        <img src="{{ asset('storage/' . auth()->user()->photo_3x4) }}" alt="3x4 Photo" class="h-full w-full object-cover" />
+                                        <img src="{{ route('users.photo', auth()->user()) }}" alt="3x4 Photo" class="h-full w-full object-cover" />
                                     @else
                                         <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-sky-100 to-sky-200 text-3xl font-bold text-sky-700">
                                             {{ strtoupper(substr(auth()->user()->full_name ?: auth()->user()->name ?: 'P', 0, 1)) }}
@@ -92,7 +92,7 @@
  
                                     <div>
                                         <label for="photo_3x4" class="mb-2 block text-sm font-semibold text-slate-700">3x4 Photo</label>
-                                        <input id="photo_3x4" name="photo_3x4" type="file" accept="image/*" class="block w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 file:mr-4 file:rounded-lg file:border-0 file:bg-sky-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-sky-700">
+                                        <input id="photo_3x4" name="photo_3x4" type="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*" class="block w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 file:mr-4 file:rounded-lg file:border-0 file:bg-sky-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-sky-700">
                                         @error('photo_3x4')
                                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                         @enderror

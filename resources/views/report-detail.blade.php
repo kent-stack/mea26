@@ -32,7 +32,9 @@
                         <div class="gallery-scroll flex gap-4 overflow-x-auto pb-2">
                             @foreach($report->photos as $index => $photo)
                                 @php
-                                    $photoUrl = route('reports.media', [$report, $index]);
+                                    $photoUrl = \Illuminate\Support\Facades\Storage::disk('public')->exists($photo)
+                                        ? route('reports.media', [$report, $index])
+                                        : null;
                                 @endphp
 
                                 @if($photoUrl)

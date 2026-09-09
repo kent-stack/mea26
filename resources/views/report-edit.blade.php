@@ -55,7 +55,7 @@
 
                 <div class="mb-5">
                     <label class="mb-2 block text-sm font-semibold text-slate-700">Add More Photos</label>
-                    <input type="file" name="photos[]" multiple accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,image/*" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-3 focus:border-sky-500 focus:outline-none">
+                    <input type="file" name="photos[]" multiple accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.avif,.mp4,.mov,.avi,.webm,.mkv,image/*,video/*" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-3 focus:border-sky-500 focus:outline-none">
                     <p class="mt-2 text-xs text-slate-500">Upload additional photos. The photos already submitted will remain and the new ones will be added.</p>
                 </div>
 
